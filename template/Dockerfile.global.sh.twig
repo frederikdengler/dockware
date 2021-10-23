@@ -478,6 +478,10 @@ RUN service mysql start && \
     service mysql stop
 {% endblock %}
 
+{% block shopware_scheduled_task_config %}
+COPY ./assets/shopware6/shopware.yaml /var/www/html/config/packages/shopware.yaml
+{% endblock %}
+
 {% block shopware_dev_plugin %}
 COPY ./assets/shopware6/DockwareSamplePlugin /var/www/html/custom/plugins/DockwareSamplePlugin
 

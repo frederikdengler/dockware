@@ -1,1 +1,12 @@
 {% extends "variants/play/entrypoint.base.sh.twig" %}
+
+
+{% block setup_shopware %}
+    {{ parent() }}
+    
+    echo "DOCKWARE: Registering scheduled tasks..."
+    /var/www/html/bin/console scheduled-task:register
+    echo "DOCKWARE: Setup to automatically run scheduled tasks..."
+    
+    echo "-----------------------------------------------------------"
+{% endblock %}
